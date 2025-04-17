@@ -17,6 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+
 // Define Constants
 define( 'MPW_VERSION', '1.0.0' );
 define( 'MPW_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
@@ -66,6 +67,13 @@ function mpw_enqueue_scripts() {
     // }
 }
 add_action( 'wp_enqueue_scripts', 'mpw_enqueue_scripts' );
+
+wp_enqueue_style(
+    'mpw-frontend-styles',
+    MPW_PLUGIN_URL . 'assets/css/frontend-styles.css',
+    array(),
+    MPW_VERSION
+);
 
 /**
  * Activation hook: Flush rewrite rules for CPT.
